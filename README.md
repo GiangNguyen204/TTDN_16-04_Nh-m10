@@ -1,181 +1,157 @@
-# 📊 BÁO CÁO HỆ THỐNG CHẤM CÔNG – TÍNH LƯƠNG TỰ ĐỘNG  
-## Trên nền tảng Odoo 19
+<h2 align="center">
+    <a href="https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin">
+    🎓 Faculty of Information Technology (DaiNam University)
+    </a>
+</h2>
 
-![Odoo Banner](https://github.com/user-attachments/assets/d1572174-b9a5-44f7-b7c8-769db9bdac3e)
+<h2 align="center">
+   🚀 Hệ thống quản lý tiền lương và bảo hiểm y tế (BHYT) trên Odoo 19
+</h2>
 
----
+<div align="center">
+    <p align="center">
+        <img width="170"  alt="AIoTLab Logo" src="https://github.com/user-attachments/assets/722ef6fe-9b09-41f4-9d58-a752e2be9da4" />
+        <img width="170" alt="FIT DNU Logo" src="https://github.com/user-attachments/assets/38f342e5-4c81-4d22-b1d0-985cf91c702c" />
+        <img width="200" alt="DaiNam University" src="https://github.com/user-attachments/assets/11138726-5355-4c53-9fdb-bec177681ae0" />
+    </p>
 
-## 🧭 Giới thiệu chung
+<div align="center">
 
-Quản trị nhân sự là **nòng cốt của sự ổn định và phát triển doanh nghiệp**.  
-Việc áp dụng hệ thống tự động hóa trong chấm công và tính lương giúp:
+[![Odoo](https://img.shields.io/badge/Odoo-19-purple?style=for-the-badge)](https://www.odoo.com/)
+[![BJ Payroll](https://img.shields.io/badge/BJ%20Payroll-Custom-blue?style=for-the-badge)](#)
+[![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
-- Tối ưu hóa quy trình vận hành  
-- Giảm thiểu sai sót thủ công  
-- Đảm bảo tính **minh bạch – chính xác – kịp thời** trong chi trả quyền lợi cho người lao động  
-
-Đề tài tập trung xây dựng **giải pháp quản trị nhân sự tập trung** trên nền tảng **ERP Odoo 19**, tích hợp chặt chẽ giữa chấm công, tiền lương và báo cáo phân tích.
-
----
-
-## 📌 Giới thiệu hệ thống
-
-Hệ thống chấm công – tính lương trên nền tảng **Odoo ERP** là một giải pháp **khép kín**, bao phủ toàn bộ quy trình từ quản lý hồ sơ nhân sự đến xuất phiếu lương.
-
-### Các chức năng chính:
-- 🗂️ **Quản lý nhân sự**  
-  Lưu trữ tập trung hồ sơ nhân viên, phòng ban, chức vụ và vòng đời hợp đồng.
-
-- 🕒 **Ghi nhận chấm công**  
-  Hỗ trợ nhiều nguồn dữ liệu: nhập tay, camera, API thiết bị ngoại vi.
-
-- ⚖️ **Tự động tính lương**  
-  Tính lương dựa trên công thực tế, hệ số tăng ca và các khoản phụ cấp.
-
-- 🛡️ **Bảo hiểm & Thuế**  
-  Khấu trừ tự động BHXH, BHYT, BHTN và thuế TNCN theo quy định pháp luật.
-
-- 📊 **Báo cáo thông minh**  
-  Dashboard trực quan theo dõi quỹ lương và hiệu suất làm việc.
+</div>
+</div>
 
 ---
 
-## 🏗️ Cấu trúc hệ thống
+## 1. Giới thiệu hệ thống
 
-Hệ thống được thiết kế theo **kiến trúc module**, liên kết chặt chẽ thông qua cơ sở dữ liệu tập trung:
+Đây là **hệ thống quản lý tiền lương và bảo hiểm y tế (BHYT)** được xây dựng trên nền tảng **Odoo 19**, theo hướng **module hóa và tùy biến**, phục vụ mục tiêu **nghiên cứu học thuật và đồ án tốt nghiệp**.
 
-1. **Module Nhân sự (Core)**  
-   Quản lý thông tin nhân viên, hợp đồng và khung lương cơ bản.
-
-2. **Module Chấm công (Center)**  
-   Xử lý dữ liệu hiện diện, đối chiếu ca làm việc và phát hiện đi muộn/về sớm.
-
-3. **Module Tính lương (Payroll)**  
-   Tính toán lương Gross/Net, áp dụng biểu thuế lũy tiến và sinh phiếu lương điện tử.
+Hệ thống **không sử dụng module payroll mặc định của Odoo**, mà triển khai một giải pháp tính lương riêng (BJ Payroll), cho phép chủ động trong thiết kế nghiệp vụ và mở rộng trong tương lai.
 
 ---
 
-## 🛠️ Công cụ và công nghệ sử dụng
+### 🎯 Mục tiêu chính
 
-- **Ngôn ngữ**: Python (xử lý logic nghiệp vụ, ORM)
-- **Nền tảng**: Odoo 19 (ERP mã nguồn mở)
-- **Cơ sở dữ liệu**: PostgreSQL
-- **Công cụ hỗ trợ**:
-  - GitHub (quản lý mã nguồn)
-  - PlantUML (thiết kế sơ đồ)
-- **Tích hợp dữ liệu**:
-  - Google Sheets
-  - Microsoft Excel
+- Xây dựng hệ thống **tính lương tùy biến** dựa trên dữ liệu chấm công  
+- Tích hợp **bảo hiểm y tế (BHYT)** cho người lao động và doanh nghiệp  
+- Đảm bảo **tính chính xác – minh bạch – nhất quán dữ liệu**  
+- Phù hợp cho **đào tạo, nghiên cứu và mô phỏng nghiệp vụ doanh nghiệp**
 
 ---
 
-# 🚀 Hướng dẫn cài đặt và vận hành hệ thống
+### 🧩 Các chức năng chính
 
-## 1. Cài đặt môi trường Odoo
+- 👤 **Quản lý nhân viên**
+- ⏱ **Chấm công và tổng hợp theo tháng**
+- 💰 **Quản lý bảng lương (Payslip)**
+- 🏥 **Tích hợp bảo hiểm y tế (BHYT)**
 
-### 🔧 Yêu cầu hệ thống
-- **Python**: phiên bản 3.10 trở lên
-- **Cơ sở dữ liệu**: PostgreSQL
-- **Hệ điều hành**: Linux / WSL / macOS (khuyến nghị)
+---
 
-### 📦 Cài đặt thư viện cần thiết
-Sau khi clone source code, chạy lệnh:
+## ⚙️ 2. Công nghệ sử dụng
+
+### 💻 Nền tảng chính
+- **Odoo 19**
+- **Python (Odoo ORM)**
+- **PostgreSQL**
+
+### 🧩 Kiến trúc hệ thống
+- Module lõi: `bj_payroll_core`
+- Module mở rộng: `bj_health_insurance`
+- Custom model: `bj.hr.payslip`
+
+---
+
+## 3. Một số hình ảnh hệ thống
+
+<p align="center">
+    <em>Danh sách bảng lương (Payslip List View)</em><br/>
+    <img src="docs/payslip_list.png" width="900"/>
+</p>
+
+<p align="center">
+    <em>Chi tiết bảng lương và bảo hiểm y tế (BHYT)</em><br/>
+    <img src="docs/payslip_form_bhyt.png" width="900"/>
+</p>
+
+<p align="center">
+    <em>Chức năng chấm công và tổng hợp theo tháng</em><br/>
+    <img src="docs/attendance_report.png" width="900"/>
+</p>
+
+---
+
+## 🛠️ 4. Hướng dẫn cài đặt & triển khai
+
+### 4.1. Yêu cầu hệ thống
+- 🐍 Python >= 3.10  
+- 🐘 PostgreSQL  
+- 🐳 Docker (khuyến nghị)  
+- 🌐 Trình duyệt web hiện đại
+
+---
+
+### 📦 4.2. Clone dự án
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/<username>/bj-payroll-odoo19.git
+cd bj-payroll-odoo19
 ```
-## 2. Cấu hình quy định Tăng ca (OT)
-Dữ liệu tăng ca (Overtime – OT) được hệ thống tự động xác định dựa trên thời điểm làm việc thực tế:
 
-Ngày thường: Hệ số 150%
+---
 
-Cuối tuần: Hệ số 200%
+### 🔧 4.3. Cài đặt module
 
-Ngày Lễ / Tết: Hệ số 300%
+1. Sao chép các module sau vào thư mục `addons` của Odoo:
+   - `bj_payroll_core`
+   - `bj_health_insurance`
 
-## 3. Chạy hệ thống
-Khởi động Odoo Server và cài đặt module tùy chỉnh của nhóm:
-```bash ./odoo-bin -c odoo.conf -i hr_payroll_custom```
-<li>📘 Hướng dẫn sử dụng hệ thống</li>
-a) Thiết lập ban đầu
-Nhập hồ sơ nhân viên
+2. Cập nhật module trong cơ sở dữ liệu:
 
-Thiết lập phòng ban
+```bash
+./odoo-bin -d your_database -u bj_payroll_core,bj_health_insurance
+```
 
-Cấu hình mức lương cơ bản trong module Nhân sự (HR)
+---
 
-b) Phân ca làm việc
-Tạo các loại ca:
+### ▶️ 4.4. Chạy hệ thống
 
-Ca sáng : 8h-17h
+```bash
+./odoo-bin -c odoo.conf
+```
 
-Ca đêm : 22h-6h
+Truy cập hệ thống tại:
 
-Gán ca cho từng nhân viên
+```
+http://localhost:8069
+```
 
-c) Chấm công
-Nhân viên Check-in / Check-out qua:
+---
 
-Giao diện Web
+### ✅ 4.5. Kiểm tra hoạt động
 
-Thiết bị chấm công
+1. Tạo nhân viên  
+2. Chấm công cho nhân viên  
+3. Tạo payslip theo tháng  
+4. Nạp dữ liệu chấm công  
+5. Compute lương  
+6. Kiểm tra kết quả BHYT  
 
-Hệ thống tự động
+---
 
-Đối chiếu ca làm việc
+## 📞 5. Thông tin sinh viên thực hiện
 
-Phát hiện đi muộn / về sớm
+- 👤 **Sinh viên:** Giang Nguyễn, Bắc Nguyễn, Thu Hồng
+- 🎓 **Khoa:** Công nghệ Thông tin – Đại học Đại Nam  
+- 📧 **Email:** giangnguyen27112k4@gmail.com  
+- 📞 **SĐT:** 0353397306  
 
-d) Kết xuất bảng lương
-Cuối kỳ, bộ phận kế toán:
+---
 
-Kiểm tra bảng tổng hợp công
-
-Nhấn “Sinh phiếu lương” (Payslip)
-
-⚙️ Công thức tính toán cốt lõi
-1. Lương thực tế
-Lương thực tế = (Lương cơ bản / Công chuẩn) × Công thực tế
-Công chuẩn: 26 ngày/tháng
-
-2. Khấu trừ bảo hiểm
-Tổng mức khấu trừ: 10.5% lương đóng bảo hiểm, bao gồm:
-
-<li>BHXH: 8%</li>
-
-<li>BHYT: 1.5%</li>
-
-<li>BHTN: 1%</li>
-
-3. Lương Net
-Lương Net = Lương Gross - Bảo hiểm - Thuế TNCN
-📰 Báo cáo & Phân tích dữ liệu
-Hệ thống hỗ trợ:
-
-Phát hiện bất thường (Anomaly Detection) bằng AI
-
-Gắn cờ các trường hợp:
-
-Quên chấm công
-
-Quỹ lương dự báo vượt mức cho phép
-
-🤝 Đóng góp & Thông tin nhóm
-Dự án được thực hiện bởi:
-
-Nhóm 10 – CNTT 16-04
-
-Trường Đại học Đại Nam
-
-Thành viên:
-
-Nguyễn Văn Bắc – 1671020038
-
-Nguyễn Văn Giang – 1671020094
-
-Nguyễn Thu Hồng – 1671020131
-
-Giảng viên hướng dẫn:
-TS. Trần Đăng Công
-
-© 2026 AIoTLab, Khoa Công nghệ Thông tin, Đại học Đại Nam. Mọi quyền được bảo lưu.
+<p align="center">
+✨ <em>README được xây dựng cho kết thúc môn: Hệ thống quản lý tiền lương và bảo hiểm y tế trên nền tảng Odoo 19.</em>
+</p>
