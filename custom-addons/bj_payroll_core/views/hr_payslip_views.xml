@@ -1,0 +1,90 @@
+<odoo>
+  <data>
+    <record id="action_bj_hr_payslip" model="ir.actions.act_window">
+      <field name="name">Payslips</field>
+      <field name="res_model">bj.hr.payslip</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="bj_payroll_menu_payslips"
+              name="Payslips"
+              parent="bj_payroll_menu_operations"
+              action="action_bj_hr_payslip"
+              sequence="10"/>
+
+    <record id="view_bj_hr_payslip_list" model="ir.ui.view">
+      <field name="name">bj.hr.payslip.list</field>
+      <field name="model">bj.hr.payslip</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="employee_id"/>
+          <field name="date_from"/>
+          <field name="date_to"/>
+          <field name="gross_salary"/>
+          <field name="net_salary"/>
+          <field name="state"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_bj_hr_payslip_form" model="ir.ui.view">
+      <field name="name">bj.hr.payslip.form</field>
+      <field name="model">bj.hr.payslip</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_compute" type="object" string="Compute" class="btn-primary"/>
+            <button name="action_confirm" type="object" string="Confirm"/>
+            <button name="action_set_draft" type="object" string="Set to Draft"/>
+            <button name="action_cancel" type="object" string="Cancel"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,computed,confirmed,cancelled"/>
+          </header>
+
+          <sheet>
+            <group>
+              <field name="name" readonly="1"/>
+              <field name="employee_id"/>
+              <field name="company_id" groups="base.group_multi_company"/>
+              <field name="date_from"/>
+              <field name="date_to"/>
+            </group>
+
+            <notebook>
+              <page string="Attendance Inputs">
+                <group>
+                  <field name="work_days"/>
+                  <field name="work_hours"/>
+                  <field name="ot_hours"/>
+                  <field name="night_shift_days"/>
+                  <field name="late_minutes"/>
+                  <field name="early_minutes"/>
+                </group>
+                <button name="action_load_attendance" type="object" string="Load from Monthly Attendance"/>
+              </page>
+
+              <page string="Salary Result">
+                <group>
+                  <field name="gross_salary" readonly="1"/>
+                  <field name="total_allowance" readonly="1"/>
+                  <field name="total_deduction" readonly="1"/>
+                  <field name="net_salary" readonly="1"/>
+                </group>
+
+                <field name="line_ids">
+                  <list editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="rule_type"/>
+                    <field name="amount"/>
+                  </list>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+          <chatter/>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

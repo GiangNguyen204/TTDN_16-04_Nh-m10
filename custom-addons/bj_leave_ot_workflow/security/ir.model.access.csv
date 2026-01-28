@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_bj_leave_request_user,bj.leave.request user,model_bj_leave_request,base.group_user,1,1,1,1
+access_bj_ot_request_user,bj.ot.request user,model_bj_ot_request,base.group_user,1,1,1,1
+access_bj_attendance_adjustment_user,bj.attendance.adjustment user,model_bj_attendance_adjustment,base.group_user,1,1,1,1
+access_bj_ot_approved_user,bj.ot.approved user,model_bj_ot_approved,base.group_user,1,1,1,1

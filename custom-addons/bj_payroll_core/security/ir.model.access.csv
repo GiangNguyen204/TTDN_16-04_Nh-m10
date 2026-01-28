@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_bj_payroll_rule_user,bj.payroll.rule user,model_bj_payroll_rule,base.group_user,1,1,1,1
+access_bj_hr_payslip_user,bj.hr.payslip user,model_bj_hr_payslip,base.group_user,1,1,1,1
+access_bj_hr_payslip_line_user,bj.hr.payslip.line user,model_bj_hr_payslip_line,base.group_user,1,1,1,1
+access_bj_hr_payslip_run_user,bj.hr.payslip.run user,model_bj_hr_payslip_run,base.group_user,1,1,1,1

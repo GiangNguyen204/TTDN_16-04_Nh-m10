@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="bj_payslip_insurance_view_form_inherit" model="ir.ui.view">
+    <field name="name">hr.payslip.form.bj.insurance</field>
+<field name="model">bj.hr.payslip</field>
+<field name="inherit_id" ref="bj_payroll_core.VIEW_ID_FORM_PAYSLIP_CUA_BAN"/>
+
+    <!-- Nếu bạn không có hr_payroll enterprise, đổi inherit_id sang view payslip của module bạn -->
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <group string="BHYT (Health Insurance)">
+          <field name="bhyt_base_amount"/>
+          <field name="bhyt_employee_amount"/>
+          <field name="bhyt_company_amount"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>

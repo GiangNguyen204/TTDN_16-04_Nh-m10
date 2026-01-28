@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+    <record id="view_employee_form_bj_payroll" model="ir.ui.view">
+      <field name="name">hr.employee.form.bj.payroll</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook" position="inside">
+          <page string="BJ Payroll">
+            <group>
+              <field name="bj_salary_type"/>
+              <field name="bj_base_salary"/>
+              <field name="bj_standard_work_days">
+              <field name="bj_standard_work_hours"/>
+              <field name="bj_hourly_rate" readonly="1"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

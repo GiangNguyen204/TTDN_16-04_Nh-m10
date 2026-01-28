@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+    <record id="action_bj_leave_request" model="ir.actions.act_window">
+      <field name="name">Leave Requests</field>
+      <field name="res_model">bj.leave.request</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="bj_leave_menu"
+              name="Leave Requests"
+              parent="bj_payroll_core.bj_payroll_menu_operations"
+              action="action_bj_leave_request"
+              sequence="40"/>
+
+    <record id="view_bj_leave_request_tree" model="ir.ui.view">
+      <field name="name">bj.leave.request.tree</field>
+      <field name="model">bj.leave.request</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="employee_id"/>
+          <field name="date_from"/>
+          <field name="date_to"/>
+          <field name="leave_type"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_bj_leave_request_form" model="ir.ui.view">
+      <field name="name">bj.leave.request.form</field>
+      <field name="model">bj.leave.request</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_submit" type="object" string="Submit" class="btn-primary"
+                    attrs="{'invisible':[('state','!=','draft')]}"/>
+            <button name="action_approve" type="object" string="Approve"
+                    attrs="{'invisible':[('state','!=','submitted')]}"/>
+            <button name="action_reject" type="object" string="Reject"
+                    attrs="{'invisible':[('state','!=','submitted')]}"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,rejected"/>
+          </header>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="employee_id"/>
+              <field name="approver_id"/>
+            </group>
+            <group>
+              <field name="date_from"/>
+              <field name="date_to"/>
+              <field name="leave_type"/>
+            </group>
+            <group>
+              <field name="reason"/>
+            </group>
+          </sheet>
+          <chatter/>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <menuitem id="bj_payroll_menu_root" name="BJ Payroll" sequence="10"/>
+
+        <menuitem id="bj_payroll_menu_configuration"
+                  name="Configuration"
+                  parent="bj_payroll_menu_root"
+                  sequence="80"/>
+
+        <menuitem id="bj_payroll_menu_operations"
+                  name="Operations"
+                  parent="bj_payroll_menu_root"
+                  sequence="10"/>
+    </data>
+</odoo>

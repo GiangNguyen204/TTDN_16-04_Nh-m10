@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_bj_ins_tax_config_user,bj.ins.tax.config user,model_bj_ins_tax_config,base.group_user,1,1,1,1
+access_bj_tax_bracket_user,bj.tax.bracket user,model_bj_tax_bracket,base.group_user,1,1,1,1

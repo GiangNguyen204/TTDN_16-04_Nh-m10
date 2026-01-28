@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bj_insurance_config_manager,bj.insurance.config manager,model_bj_insurance_config,hr.group_hr_manager,1,1,1,1
+access_bj_insurance_config_user,bj.insurance.config user,model_bj_insurance_config,hr.group_hr_user,1,0,0,0

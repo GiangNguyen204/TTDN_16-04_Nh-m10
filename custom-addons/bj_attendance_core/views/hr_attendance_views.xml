@@ -1,0 +1,28 @@
+docker exec -i odoo_app_fitdnu bash -lc "cat > /var/lib/odoo/addons/19.0/bj_attendance_core/views/hr_attendance_views.xml <<'EOF'
+<odoo>
+  <record id=\"view_attendance_form_bj_core\" model=\"ir.ui.view\">
+    <field name=\"name\">hr.attendance.form.bj.core</field>
+    <field name=\"model\">hr.attendance</field>
+    <field name=\"inherit_id\" ref=\"hr_attendance.hr_attendance_view_form\"/>
+    <field name=\"arch\" type=\"xml\">
+
+      <xpath expr=\"//field[@name='check_in']\" position=\"after\">
+        <field name=\"source\"/>
+      </xpath>
+
+      <xpath expr=\"//sheet\" position=\"inside\">
+        <group string=\"Minh chứng &amp; Camera\" col=\"2\">
+          <field name=\"evidence_attachment_ids\"
+                 widget=\"many2many_tags\"
+                 options=\"{'no_create': True}\"/>
+
+          <field name=\"camera_device_id\" invisible=\"source != 'camera'\"/>
+          <field name=\"camera_confidence\" invisible=\"source != 'camera'\"/>
+          <field name=\"camera_ts_local\" invisible=\"source != 'camera'\"/>
+        </group>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>
+EOF"

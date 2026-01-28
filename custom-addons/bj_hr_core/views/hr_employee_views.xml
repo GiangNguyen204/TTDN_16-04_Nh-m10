@@ -1,0 +1,28 @@
+<odoo>
+  <record id="view_employee_form_bj_hr_core" model="ir.ui.view">
+    <field name="name">hr.employee.form.bj.hr.core</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/notebook" position="inside">
+        <page string="Payroll &amp; Face">
+          <group>
+            <field name="wage_type"/>
+            <field name="base_wage"/>
+          </group>
+
+          <group string="Ảnh mẫu khuôn mặt (Enrollment)" col="3">
+            <field name="face_image_1" widget="image"/>
+            <field name="face_image_2" widget="image"/>
+            <field name="face_image_3" widget="image"/>
+          </group>
+
+          <group>
+            <field name="face_embedding_json"
+                   placeholder="[0.12, -0.03, ...]"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

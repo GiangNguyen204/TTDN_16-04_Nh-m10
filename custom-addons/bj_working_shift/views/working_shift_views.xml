@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_bj_working_shift" model="ir.actions.act_window">
+        <field name="name">Ca làm việc</field>
+        <field name="res_model">bj.working.shift</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo ca làm việc để tính đi muộn / về sớm / OT.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu root -->
+    <menuitem id="menu_bj_hr_root" name="BJ HR" sequence="10"/>
+
+    <!-- Menu Shift -->
+    <menuitem
+        id="menu_bj_working_shift"
+        name="Ca làm việc"
+        parent="menu_bj_hr_root"
+        action="action_bj_working_shift"
+        sequence="20"
+    />
+
+    <!-- Tree -->
+    <record id="view_bj_working_shift_tree" model="ir.ui.view">
+        <field name="name">bj.working.shift.tree</field>
+        <field name="model">bj.working.shift</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="break_minutes"/>
+                <field name="shift_hours"/>
+                <field name="late_threshold"/>
+                <field name="early_threshold"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_bj_working_shift_form" model="ir.ui.view">
+        <field name="name">bj.working.shift.form</field>
+        <field name="model">bj.working.shift</field>
+        <field name="arch" type="xml">
+            <form string="Ca làm việc">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+
+                    <group string="Thời gian ca">
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="break_minutes"/>
+                        <field name="shift_hours" readonly="1"/>
+                    </group>
+
+                    <group string="Quy định">
+                        <field name="late_threshold"/>
+                        <field name="early_threshold"/>
+                        <field name="night_allowance"/>
+                    </group>
+
+                    <group>
+                        <field name="note" placeholder="Ghi chú..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

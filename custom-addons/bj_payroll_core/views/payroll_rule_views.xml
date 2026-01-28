@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <record id="action_bj_payroll_rule" model="ir.actions.act_window">
+      <field name="name">Payroll Rules</field>
+      <field name="res_model">bj.payroll.rule</field>
+      <field name="view_mode">list,form</field>
+
+    </record>
+
+    <menuitem id="bj_payroll_menu_rules"
+              name="Payroll Rules"
+              parent="bj_payroll_menu_configuration"
+              action="action_bj_payroll_rule"
+              sequence="10"/>
+
+    <record id="view_bj_payroll_rule_tree" model="ir.ui.view">
+      <field name="name">bj.payroll.rule.list</field>
+
+      <field name="model">bj.payroll.rule</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="sequence"/>
+          <field name="name"/>
+          <field name="code"/>
+          <field name="rule_type"/>
+          <field name="amount_type"/>
+          <field name="amount"/>
+          <field name="active"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_bj_payroll_rule_form" model="ir.ui.view">
+      <field name="name">bj.payroll.rule.form</field>
+      <field name="model">bj.payroll.rule</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="active"/>
+            </group>
+            <group>
+              <field name="code"/>
+              <field name="rule_type"/>
+              <field name="amount_type"/>
+              <field name="amount"/>
+            </group>
+          </sheet>
+          <chatter/>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

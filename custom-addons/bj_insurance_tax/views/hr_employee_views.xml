@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+    <record id="view_employee_form_bj_ins_tax" model="ir.ui.view">
+      <field name="name">hr.employee.form.bj.ins.tax</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook/page[@string='BJ Payroll']" position="after">
+          <page string="Insurance/Tax">
+            <group>
+              <field name="bj_apply_insurance"/>
+              <field name="bj_insurance_base_salary"/>
+              <field name="bj_dependent_count"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

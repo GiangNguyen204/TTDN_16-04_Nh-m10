@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="bj_insurance_config_action" model="ir.actions.act_window">
+    <field name="name">Insurance Config</field>
+    <field name="res_model">bj.insurance.config</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem id="bj_insurance_menu_root" name="BJ Insurance" parent="hr.menu_hr_root" sequence="80"/>
+  <menuitem id="bj_insurance_menu_config" name="Configuration" parent="bj_insurance_menu_root" action="bj_insurance_config_action" sequence="10"/>
+
+  <record id="bj_insurance_config_view_list" model="ir.ui.view">
+    <field name="name">bj.insurance.config.list</field>
+    <field name="model">bj.insurance.config</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="active"/>
+        <field name="date_from"/>
+        <field name="date_to"/>
+        <field name="base_type"/>
+        <field name="bhyt_employee_rate"/>
+        <field name="bhyt_company_rate"/>
+        <field name="cap_amount"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="bj_insurance_config_view_form" model="ir.ui.view">
+    <field name="name">bj.insurance.config.form</field>
+    <field name="model">bj.insurance.config</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="active"/>
+          </group>
+          <group>
+            <field name="date_from"/>
+            <field name="date_to"/>
+          </group>
+          <group string="BHYT Rates">
+            <field name="bhyt_employee_rate"/>
+            <field name="bhyt_company_rate"/>
+            <field name="base_type"/>
+            <field name="cap_amount"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

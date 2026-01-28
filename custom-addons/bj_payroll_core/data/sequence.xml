@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_bj_hr_payslip" model="ir.sequence">
+            <field name="name">BJ Payslip Sequence</field>
+            <field name="code">bj.hr.payslip</field>
+            <field name="prefix">PSL/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

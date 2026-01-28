@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+    <record id="action_bj_hr_payslip_run" model="ir.actions.act_window">
+      <field name="name">Payslip Runs</field>
+      <field name="res_model">bj.hr.payslip.run</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="bj_payroll_menu_payslip_runs"
+              name="Payslip Runs"
+              parent="bj_payroll_menu_operations"
+              action="action_bj_hr_payslip_run"
+              sequence="20"/>
+
+    <record id="view_bj_hr_payslip_run_list" model="ir.ui.view">
+      <field name="name">bj.hr.payslip.run.list</field>
+      <field name="model">bj.hr.payslip.run</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="date_from"/>
+          <field name="date_to"/>
+          <field name="slip_count"/>
+          <field name="state"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_bj_hr_payslip_run_form" model="ir.ui.view">
+      <field name="name">bj.hr.payslip.run.form</field>
+      <field name="model">bj.hr.payslip.run</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_generate_payslips" type="object" string="Generate Payslips" class="btn-primary"/>
+            <button name="action_compute_all" type="object" string="Compute All"/>
+            <button name="action_confirm_all" type="object" string="Confirm All"/>
+            <button name="action_set_draft" type="object" string="Reset to Draft"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,generated,computed,confirmed"/>
+          </header>
+
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="company_id" groups="base.group_multi_company"/>
+              <field name="date_from"/>
+              <field name="date_to"/>
+            </group>
+
+            <field name="slip_ids">
+              <list>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="gross_salary"/>
+                <field name="net_salary"/>
+                <field name="state"/>
+              </list>
+            </field>
+          </sheet>
+
+          <chatter/>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

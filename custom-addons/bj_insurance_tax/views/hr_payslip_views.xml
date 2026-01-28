@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <record id="view_bj_payslip_form_bj_ins_tax" model="ir.ui.view">
+      <field name="name">bj.hr.payslip.form.bj.ins.tax</field>
+      <field name="model">bj.hr.payslip</field>
+      <field name="inherit_id" ref="bj_payroll_core.view_bj_hr_payslip_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@string='Salary Result']/group" position="after">
+          <group string="Insurance & Tax">
+            <field name="insurance_total" readonly="1"/>
+            <field name="taxable_income" readonly="1"/>
+            <field name="pit_tax" readonly="1"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

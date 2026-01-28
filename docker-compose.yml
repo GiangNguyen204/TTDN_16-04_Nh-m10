@@ -1,0 +1,79 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: postgres_odoo_fitdnu
+    environment:
+      POSTGRES_USER: giang
+      POSTGRES_PASSWORD: giang
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5433:5432"
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U giang -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  odoo:
+    image: odoo:19.0
+    container_name: odoo_app_fitdnu
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+
+    volumes:
+      - odoo_data:/var/lib/odoo
+
+      # ✅ runtime addons volume đúng path Odoo đã whitelist sẵn
+      - custom_addons_data:/var/lib/odoo/addons/19.0
+
+      # ✅ source từ Windows chỉ để copy
+      - ./custom-addons:/src/custom-addons:ro
+
+      # ✅ config
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+
+    user: "0:0"
+    command: >
+      bash -lc "
+        set -e;
+
+        mkdir -p /var/lib/odoo/addons/19.0;
+        rm -rf /var/lib/odoo/addons/19.0/*;
+
+        cp -R /src/custom-addons/. /var/lib/odoo/addons/19.0/;
+
+        chown -R odoo:odoo /var/lib/odoo/addons/19.0 /var/lib/odoo;
+
+        chmod -R a-st,go-w /var/lib/odoo/addons/19.0;
+        chmod -R u+rwX,go+rX /var/lib/odoo/addons/19.0;
+
+        mkdir -p /var/log/odoo;
+        chown -R odoo:odoo /var/log/odoo;
+
+        exec su -s /bin/bash odoo -c \"odoo -c /etc/odoo/odoo.conf --db_host=db --db_port=5432 --db_user=giang --db_password=giang\"
+      "
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container_fitdnu
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: giangnguyen27112k4@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: janjan2k4
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5051:80"
+    restart: always
+
+volumes:
+  db_data:
+  odoo_data:
+  custom_addons_data:
