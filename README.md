@@ -5,7 +5,7 @@
 </h2>
 
 <h2 align="center">
-   🚀 Hệ thống quản lý tiền lương và bảo hiểm y tế (BHYT) trên Odoo 19
+   🚀 Hệ thống chấm công và tính lương trên Odoo 19
 </h2>
 
 <div align="center">
@@ -70,17 +70,20 @@ Hệ thống **không sử dụng module payroll mặc định của Odoo**, mà
 
 <p align="center">
     <em>Danh sách bảng lương (Payslip List View)</em><br/>
-    <img src="docs/payslip_list.png" width="900"/>
+    <img width="624" height="351" alt="image" src="https://github.com/user-attachments/assets/c4665aec-88d2-44d1-af7a-92bec7af7a75" />
+
 </p>
 
 <p align="center">
     <em>Chi tiết bảng lương và bảo hiểm y tế (BHYT)</em><br/>
-    <img src="docs/payslip_form_bhyt.png" width="900"/>
+    <img width="212" height="150" alt="image" src="https://github.com/user-attachments/assets/da6a5a65-60a2-4840-b201-26c3a606b7ef" />
+
 </p>
 
 <p align="center">
     <em>Chức năng chấm công và tổng hợp theo tháng</em><br/>
-    <img src="docs/attendance_report.png" width="900"/>
+    <img width="624" height="293" alt="image" src="https://github.com/user-attachments/assets/ff820bd0-de04-4a31-947c-76cb6c9a48c7" />
+
 </p>
 
 ---
