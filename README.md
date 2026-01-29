@@ -88,6 +88,11 @@ Hệ thống **không sử dụng module payroll mặc định của Odoo**, mà
 
 ---
 
+📰 Poster
+
+<img width="635" height="862" alt="image" src="https://github.com/user-attachments/assets/0979d89c-1f3d-4dd9-ba88-7e8785a3d337" />
+
+
 ## 🛠️ 4. Hướng dẫn cài đặt & triển khai
 
 ### 4.1. Yêu cầu hệ thống
